@@ -9,13 +9,3 @@ int add(int n, int m)
 {
 return (n + m);
 }
-
-/**
-int add(int a, int b)
-{
-	int c;
-
-	c = a + b;
-
-	return (c);
-} **/
