@@ -1,26 +1,28 @@
-#include "main.h"
+#include<iostream>
+using namespace std;
 
-/**
-  * print_number - print numbers chars
-  * @n: integer params
-  * Return: 0
- **/
+int main() {
+	int n, numbers[200];	// max expected size
 
-void print_number(int n)
-{
-	unsigned int n1;
+	cin>>n;
+	for (int i = 0; i < n; ++i)
+		cin >> numbers[i];
 
-	n1 = n;
+	int maximum_idx = 0;
+	for (int i = 1; i < n; ++i)
+		if (numbers[maximum_idx] < numbers[i])
+			maximum_idx = i;
 
-	if (n < 0)
-	{
-		_putchar('-');
-		n1 = -n;
-	}
+	int max1 = numbers[maximum_idx];
+	numbers[maximum_idx] = -1000000;	// assume good value
 
-	if (n1 / 10 != 0)
-	{
-		print_number(n1 / 10);
-	}
-	_putchar((n1 % 10) + '0');
+	maximum_idx = 0;	// same code again
+	for (int i = 1; i < n; ++i)
+		if (numbers[maximum_idx] < numbers[i])
+			maximum_idx = i;
+
+	int max2 = numbers[maximum_idx];
+	cout << max1 << " " << max2;
+	return 0;
 }
+
